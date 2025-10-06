@@ -9,7 +9,7 @@ pkill -f "twelve_data_dashboard"
 
 ### 2. Start New Dashboard
 ```bash
-export TWELVEDATA_API_KEY="2e11d94521b2401d82916081f9ec445b"
+export TWELVEDATA_API_KEY="your_api_key_here"
 python3 economist_dashboard.py
 ```
 
