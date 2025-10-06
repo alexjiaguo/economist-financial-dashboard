@@ -1,0 +1,108 @@
+economist-financial-dashboard/
+│
+├── 📄 README.md                       # Main project documentation
+├── 📄 LICENSE                         # MIT License
+├── 📄 .gitignore                      # Git ignore rules
+├── 📄 STRUCTURE.md                    # Project structure guide
+├── 📄 PROJECT_TREE.txt               # This visual tree
+│
+├── 📂 src/                            # PRODUCTION SOURCE CODE
+│   ├── 🐍 app.py                      # Main Flask application (1,200+ lines)
+│   ├── 📋 requirements.txt            # Python dependencies
+│   ├── 📝 .env.example               # Environment template
+│   └── 🚀 start.sh                   # Quick start script
+│
+├── 📂 docs/                           # DOCUMENTATION (15 files)
+│   ├── SETUP.md                      # Installation & troubleshooting
+│   ├── ECONOMIST_DASHBOARD_GUIDE.md  # Complete user manual
+│   ├── FEATURES_QUICK_REFERENCE.md   # Feature lookup table
+│   ├── REAL_DATA_UPDATE.md           # Real data implementation
+│   ├── NEW_FEATURES_SUMMARY.md       # All features explained
+│   ├── QUICK_START.md                # 5-minute setup
+│   ├── DASHBOARD_UPDATE_SUMMARY.md   # Change history
+│   ├── GITHUB_SETUP.md               # GitHub deployment
+│   ├── PROJECT_SUMMARY.md            # Project overview
+│   ├── SUCCESS.md                    # Post-setup guide
+│   ├── TWELVE_DATA_SETUP.md          # API setup
+│   ├── SWITCH_TO_TWELVE_DATA.md      # Migration guide
+│   ├── API_LIMITS_GUIDE.md           # API rate limits
+│   ├── DASHBOARD_FINAL_STATUS.md     # Final status
+│   └── UNIVERSAL_DASHBOARD_GUIDE.md  # Universal guide
+│
+├── 📂 scripts/                        # HELPER SCRIPTS
+│   ├── push_to_github.sh             # GitHub automation
+│   ├── start_dashboard.sh            # Dashboard launcher
+│   ├── launch_dashboard.sh           # Alternative launcher
+│   ├── setup_alpha_vantage.sh        # Alpha Vantage setup
+│   ├── setup_browser_automation.sh   # Browser automation
+│   └── setup_mcp_environment.sh      # MCP setup
+│
+├── 📂 fonts/                          # FONTS (Optional)
+│   ├── NotoSans-Regular.ttf          # Regular font
+│   └── NotoSans-Bold.ttf             # Bold font
+│
+└── 📂 old_versions/                   # ARCHIVE (Historical code)
+    ├── cny_usd_analysis.py           # Early CNY/USD analysis
+    ├── cny_usd_dashboard.py          # First dashboard
+    ├── tesla_stock_prediction.py     # Stock predictions
+    ├── simple_dashboard.py           # Simple iterations
+    ├── web_dashboard.py              # Web prototypes
+    ├── twelve_data_dashboard.py      # API integration tests
+    ├── universal_trading_dashboard.py # Universal version
+    ├── improved_web_dashboard.py     # Improvements
+    ├── quick_dashboard.py            # Quick version
+    ├── updated_quick_dashboard.py    # Updated version
+    ├── fed_policy_analysis.py        # Fed analysis
+    ├── extended_cny_analysis.py      # Extended analysis
+    ├── check_dashboard_status.py     # Status checker
+    ├── browser_automation_example.py # Automation example
+    ├── launch_dashboard_auto.py      # Auto launcher
+    ├── *.png                         # Analysis charts
+    ├── *.md                          # Old documentation
+    ├── *.pdf                         # Resumes/docs
+    └── *.json                        # Config files
+
+═══════════════════════════════════════════════════════════════════
+
+📊 STATISTICS:
+
+Source Code (src/)
+  - Files: 4
+  - Main Code: ~1,200 lines (app.py)
+  - Size: ~55 KB
+
+Documentation (docs/)
+  - Files: 15
+  - Words: ~20,000+
+  - Topics: Setup, usage, features, API, troubleshooting
+
+Scripts (scripts/)
+  - Files: 6
+  - Purpose: Automation, deployment, setup
+
+Archive (old_versions/)
+  - Files: 35+
+  - Purpose: Historical reference
+  - Status: Not used in production
+
+═══════════════════════════════════════════════════════════════════
+
+🎯 QUICK LINKS:
+
+Start Dashboard:     cd src && ./start.sh
+Read Setup:          cat docs/SETUP.md
+View Features:       cat docs/FEATURES_QUICK_REFERENCE.md
+Check Structure:     cat STRUCTURE.md
+Deploy to GitHub:    cd scripts && ./push_to_github.sh
+
+═══════════════════════════════════════════════════════════════════
+
+🚀 GETTING STARTED:
+
+1. cd src
+2. export TWELVEDATA_API_KEY='your_key'
+3. ./start.sh
+4. Open http://localhost:8080
+
+═══════════════════════════════════════════════════════════════════
+

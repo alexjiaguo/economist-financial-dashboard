@@ -1,47 +1,44 @@
-# 📊 Economist-Style Financial Dashboard
+# 📊 Economist Financial Dashboard
 
-A sophisticated, professional-grade financial analysis dashboard inspired by The Economist magazine, featuring real-time market data, economic indicators, interactive charts, and AI-powered forecasting.
+A professional, real-time financial dashboard inspired by The Economist magazine. Track currencies, stocks, cryptocurrencies, indices, and precious metals with interactive charts, economic indicators, and AI-powered forecasts.
 
-![Dashboard Screenshot](https://img.shields.io/badge/Status-Production-green) ![Python](https://img.shields.io/badge/Python-3.9+-blue) ![License](https://img.shields.io/badge/License-MIT-yellow)
+![Dashboard](https://img.shields.io/badge/Dashboard-Live-green)
+![Python](https://img.shields.io/badge/Python-3.9+-blue)
+![License](https://img.shields.io/badge/License-MIT-yellow)
+![Status](https://img.shields.io/badge/Status-Production-success)
 
 ## ✨ Features
 
-### 📈 Interactive Price Charts
-- **60 days of real historical data** from Twelve Data API
-- **30-day price forecasts** using linear regression and mean reversion
-- **Interactive Chart.js visualizations** with hover tooltips
-- Blue line for history, red dashed line for forecasts
+### 📈 34 Financial Instruments
+- **8 Currency Pairs**: USD/CNY, EUR/USD, GBP/USD, USD/JPY, AUD/USD, USD/CAD, USD/CHF, NZD/USD
+- **10 Major Stocks**: AAPL, MSFT, GOOGL, AMZN, TSLA, META, NVDA, JPM, V, WMT
+- **6 Cryptocurrencies**: BTC, ETH, BNB, SOL, XRP, ADA
+- **4 Market Indices**: DIA, QQQ, IWM, VTI
+- **6 Precious Metals**: Gold, Silver, Platinum, Palladium, Gold ETF, Silver ETF
 
-### 💡 Economic Indicators with Tooltips
-- **Global Economy**: Fed Rate, Inflation, Unemployment, GDP
-- **Market Sentiment**: VIX, Consumer Confidence, Dollar Index, 2Y & 10Y Treasury Yields
-- **Asset-Specific**: Currency-specific indicators (China GDP for CNY, ECB rate for EUR, etc.)
-- **Comprehensive tooltips** explaining each indicator's meaning and impact
+### 🎯 Real-Time Data & Analysis
+- ✅ **Live Prices** from Twelve Data API
+- ✅ **60-Day Historical Charts** with real market data
+- ✅ **30-Day Forecasts** using advanced algorithms
+- ✅ **14 Economic Indicators** with interactive tooltips
+- ✅ **Hourly Auto-Refresh** with manual refresh option
 
 ### 🎨 Economist Magazine Design
-- Professional red & blue color scheme
-- Clean typography (Econ Sans + Milo Serif)
-- Publication-quality layout
-- Responsive design
+- Professional typography and layout
+- Clean, minimalistic interface
+- Interactive Chart.js visualizations
+- Responsive design for all devices
 
-### 🌍 Multi-Asset Coverage (34 Instruments)
-- **8 Currency Pairs**: USD/CNY, EUR/USD, GBP/USD, USD/JPY, etc.
-- **10 Major Stocks**: AAPL, MSFT, GOOGL, TSLA, NVDA, etc.
-- **6 Cryptocurrencies**: BTC/USD, ETH/USD, SOL/USD, etc.
-- **4 Market Indices**: DIA (Dow), QQQ (NASDAQ), IWM (Russell 2000), VTI
-- **6 Precious Metals**: XAU/USD (Gold), XAG/USD (Silver), XPT/USD (Platinum), etc.
-
-### ⏰ Smart Refresh System
-- **Hourly auto-refresh** (saves API requests)
-- **Manual refresh button** with 1-minute cooldown
-- Shows last update time and next refresh
-
----
+### 💡 Smart Features
+- **Economic Indicators**: Fed Rate, Inflation, Unemployment, GDP, VIX, Treasury Yields, and more
+- **Asset-Specific Analysis**: Trends, volatility, predictions
+- **Interactive Tooltips**: Understand what each indicator means
+- **Forecasting Algorithm**: Linear regression + mean reversion + random walk
 
 ## 🚀 Quick Start
 
 ### Prerequisites
-- Python 3.9+
+- Python 3.9 or higher
 - Twelve Data API key (free tier: 800 requests/day)
 
 ### Installation
@@ -54,232 +51,213 @@ cd economist-financial-dashboard
 
 2. **Install dependencies**
 ```bash
+cd src
 pip install -r requirements.txt
 ```
 
-3. **Get your API key**
-- Sign up at [Twelve Data](https://twelvedata.com/)
-- Get your free API key (800 requests/day)
-
-4. **Set environment variable**
+3. **Set up API key**
 ```bash
-export TWELVEDATA_API_KEY="your_api_key_here"
+export TWELVEDATA_API_KEY='your_api_key_here'
 ```
 
-5. **Run the dashboard**
+Or create a `.env` file in the `src` directory:
 ```bash
-python3 economist_dashboard.py
+cp .env.example .env
+# Edit .env and add your API key
 ```
 
-6. **Open in browser**
+4. **Start the dashboard**
+```bash
+./start.sh
+```
+
+Or directly:
+```bash
+python3 app.py
+```
+
+5. **Open your browser**
 ```
 http://localhost:8080
 ```
 
----
+## 📁 Project Structure
 
-## 📖 Usage Guide
-
-### Selecting Assets
-1. Choose **Asset Type** from dropdown (Currencies, Stocks, Crypto, Indices, Metals)
-2. Select specific **Asset** from the second dropdown
-3. View comprehensive analysis with chart, indicators, and forecasts
-
-### Understanding the Chart
-- **Blue solid line**: Real historical prices (60 days)
-- **Red dashed line**: Forecast projection (30 days)
-- **Hover**: See exact prices and dates
-- **Trend**: Upward = bullish, downward = bearish, flat = neutral
-
-### Reading Indicators
-- **Blue "?" icon**: Hover to see detailed explanation
-- **Green ↑**: Increasing value
-- **Red ↓**: Decreasing value
-- **Gray →**: Stable/unchanged
-
-### Trading Signals
-- **STRONG BUY**: >+2% daily change (80% confidence)
-- **BUY**: >+0.5% daily change (65% confidence)
-- **HOLD**: -0.5% to +0.5% (50% confidence)
-- **SELL**: <-0.5% daily change (65% confidence)
-- **STRONG SELL**: <-2% daily change (80% confidence)
-
----
-
-## 🛠️ Technical Details
-
-### Architecture
 ```
-economist_dashboard.py
-├── EconomistDashboard (Backend)
-│   ├── fetch_asset_data()       # Real-time price from API
-│   ├── fetch_historical_data()   # 60 days historical
-│   ├── generate_forecast()       # 30-day prediction
-│   ├── get_economic_indicators() # Mock economic data
-│   └── calculate_analysis()      # Trading signals
+economist-financial-dashboard/
+├── src/                           # Source code
+│   ├── app.py                     # Main Flask application (1,200+ lines)
+│   ├── requirements.txt           # Python dependencies
+│   ├── .env.example              # Environment variables template
+│   └── start.sh                  # Quick start script
 │
-├── Flask Routes
-│   ├── / (dashboard_page)        # Serve HTML
-│   └── /api/asset                # JSON data endpoint
+├── docs/                         # Documentation
+│   ├── SETUP.md                 # Detailed setup guide
+│   ├── ECONOMIST_DASHBOARD_GUIDE.md  # Complete user manual
+│   ├── FEATURES_QUICK_REFERENCE.md   # Feature lookup
+│   ├── REAL_DATA_UPDATE.md      # Real data implementation details
+│   ├── NEW_FEATURES_SUMMARY.md  # All features explained
+│   ├── QUICK_START.md           # 5-minute setup
+│   └── ...                      # Additional guides
 │
-└── HTML/JS/CSS Template
-    ├── Chart.js visualization
-    ├── Tooltip system
-    └── Hourly auto-refresh
+├── scripts/                      # Helper scripts
+│   ├── push_to_github.sh        # GitHub deployment
+│   └── ...                      # Other utilities
+│
+├── old_versions/                 # Previous iterations (archived)
+│
+├── README.md                    # This file
+├── LICENSE                      # MIT License
+└── .gitignore                   # Git ignore rules
 ```
+
+## 🎯 How to Use
+
+1. **Select Asset Type**: Choose from Currencies, Stocks, Crypto, Indices, or Metals
+2. **Pick an Asset**: Select from the dropdown (e.g., USD/CNY, AAPL, BTC/USD)
+3. **View Real-Time Data**:
+   - Current price and 24h change
+   - 60-day historical chart
+   - 30-day forecast
+   - Technical analysis
+4. **Check Economic Indicators**: Hover over indicators to see tooltips with definitions
+5. **Refresh**: Auto-refreshes hourly, or use "Refresh Now" button (1-min cooldown)
+
+## 📊 Economic Indicators Tracked
+
+### Global Economy
+- 🏛️ **Federal Reserve Rate**: Impact on USD and markets
+- 📈 **US Inflation (CPI)**: Consumer price changes
+- 👥 **US Unemployment**: Labor market health
+- 💰 **US GDP Growth**: Economic expansion rate
+
+### Market Sentiment
+- 📉 **VIX Index**: Market volatility and fear gauge
+- 🛍️ **Consumer Confidence**: Spending optimism
+- 💵 **US Dollar Index**: USD strength vs basket
+- 📊 **Treasury Yields**: 2-year and 10-year bonds
+
+### Regional (China-specific for CNY)
+- 🏭 **China GDP**: Economic growth
+- 🏢 **China PMI**: Manufacturing health
+- 🚢 **Trade Balance**: Export/import dynamics
+
+### European (EUR-specific)
+- 🏦 **ECB Rate**: European Central Bank policy
+- 📊 **EU Inflation**: Eurozone price changes
+- 🏭 **EU PMI**: Manufacturing activity
+
+## 🔧 Technical Details
+
+### Tech Stack
+- **Backend**: Python 3.9+, Flask
+- **Frontend**: HTML5, CSS3, JavaScript (ES6+)
+- **Charts**: Chart.js 3.9+
+- **Data Source**: Twelve Data API
+- **Algorithms**: NumPy, scikit-learn
 
 ### Forecasting Algorithm
-1. **Linear Regression**: Calculate trend from last 30 days
-2. **Mean Reversion**: 2% daily pull toward long-term average
-3. **Random Walk**: Uncertainty grows with √(time)
-4. **Constraints**: Max ±30% change over 30 days
+1. **Linear Regression**: Trend identification
+2. **Mean Reversion**: Long-term average pull
+3. **Random Walk**: Uncertainty modeling with sqrt(time) scaling
+4. **Constraints**: Max 30% change to prevent unrealistic predictions
 
-### API Endpoints
-- **Quote**: `GET /quote?symbol=AAPL` - Current price
-- **Time Series**: `GET /time_series?symbol=AAPL&interval=1day&outputsize=60` - Historical data
-
----
-
-## 📊 Example Use Cases
-
-### CNY/USD Trading
-```
-1. Select: Currencies → USD/CNY
-2. Check chart: Is trend up or down?
-3. Read indicators:
-   - Fed Rate ↓ (weakens USD)
-   - China GDP ↓ (weakens CNY)
-   - Trade Surplus ↑ (strengthens CNY)
-4. View forecast: Next 30 days projection
-5. Make decision: Based on comprehensive analysis
-```
-
-### Gold Investment
-```
-1. Select: Precious Metals → XAU/USD
-2. Check indicators:
-   - High VIX → Good for gold (safe haven)
-   - Strong USD → Bad for gold (inverse)
-   - High inflation → Good for gold (hedge)
-3. Analyze forecast: Bullish or bearish?
-4. Decide: Buy, hold, or sell
-```
-
----
-
-## 🔧 Configuration
-
-### Environment Variables
-```bash
-# Required
-export TWELVEDATA_API_KEY="your_key"
-
-# Optional
-export DASHBOARD_PORT="8080"  # Default port
-```
-
-### Customization
-Edit `economist_dashboard.py`:
-- **Refresh interval**: Line 1089 (`setInterval(..., 3600000)` = 1 hour)
-- **Forecast days**: Line 1225 (`days=30`)
-- **Historical days**: Line 1221 (`days=60`)
-
----
+### API Rate Limits
+- **Free Tier**: 800 requests/day
+- **Dashboard Usage**: ~336 requests/day (hourly refresh for 14 assets)
+- **Buffer**: 464 requests for manual refreshes
 
 ## 📚 Documentation
 
-- **Quick Start**: `QUICK_START.md`
-- **Full Guide**: `ECONOMIST_DASHBOARD_GUIDE.md`
-- **New Features**: `NEW_FEATURES_SUMMARY.md`
-- **Real Data Update**: `REAL_DATA_UPDATE.md`
-- **Quick Reference**: `FEATURES_QUICK_REFERENCE.md`
+Comprehensive guides in the `docs/` folder:
 
----
+- **[Setup Guide](docs/SETUP.md)**: Installation and troubleshooting
+- **[User Manual](docs/ECONOMIST_DASHBOARD_GUIDE.md)**: Complete feature walkthrough
+- **[Feature Reference](docs/FEATURES_QUICK_REFERENCE.md)**: Quick lookup
+- **[Real Data Details](docs/REAL_DATA_UPDATE.md)**: How real data is fetched
+- **[Success Guide](docs/SUCCESS.md)**: Post-setup tips
+
+## 🐛 Troubleshooting
+
+### Port Already in Use
+```bash
+# Find and kill process on port 8080
+lsof -ti:8080 | xargs kill -9
+```
+
+### API Key Not Set
+```bash
+export TWELVEDATA_API_KEY='your_key_here'
+```
+
+### Dependencies Missing
+```bash
+cd src
+pip install -r requirements.txt
+```
+
+### Python Version
+```bash
+python3 --version  # Should be 3.9 or higher
+```
 
 ## 🤝 Contributing
 
-Contributions are welcome! Please:
-1. Fork the repository
-2. Create a feature branch (`git checkout -b feature/AmazingFeature`)
-3. Commit changes (`git commit -m 'Add AmazingFeature'`)
-4. Push to branch (`git push origin feature/AmazingFeature`)
-5. Open a Pull Request
+Contributions are welcome! Please feel free to submit a Pull Request.
 
----
+1. Fork the repository
+2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
 
 ## 📝 License
 
-MIT License - see [LICENSE](LICENSE) file for details
-
----
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
 ## 🙏 Acknowledgments
 
 - **Twelve Data** for providing the financial data API
-- **Chart.js** for beautiful, interactive charts
 - **The Economist** for design inspiration
+- **Chart.js** for beautiful interactive charts
 - **Flask** for the web framework
 
----
+## 📧 Contact
 
-## 📞 Support
+**Alex Guo** - [@alexjiaguo](https://github.com/alexjiaguo)
 
-- **Issues**: [GitHub Issues](https://github.com/yourusername/economist-dashboard/issues)
-- **Documentation**: See `docs/` folder
-- **API Limits**: Twelve Data free tier = 800 requests/day
+**Project Link**: [https://github.com/alexjiaguo/economist-financial-dashboard](https://github.com/alexjiaguo/economist-financial-dashboard)
 
 ---
 
-## 🔮 Roadmap
+## 🎯 API Key Setup
 
-- [ ] Real economic data integration (FRED API)
-- [ ] Machine learning forecasts (LSTM, Prophet)
-- [ ] Multi-asset comparison charts
-- [ ] Alert system (email/SMS)
-- [ ] Portfolio tracking
-- [ ] Historical backtesting
-- [ ] News sentiment analysis
-- [ ] Export charts as PNG/PDF
+Get your free Twelve Data API key:
 
----
+1. Go to [https://twelvedata.com/](https://twelvedata.com/)
+2. Sign up for free account
+3. Navigate to API dashboard
+4. Copy your API key
+5. Set environment variable:
+   ```bash
+   export TWELVEDATA_API_KEY='your_key_here'
+   ```
 
-## 📊 Stats
-
-- **34 Instruments** across 5 asset classes
-- **60 Days** of historical data
-- **30 Days** of forecasts
-- **14 Economic Indicators** with tooltips
-- **Hourly Updates** (auto-refresh)
-
----
-
-## 🎯 Perfect For
-
-- **Traders**: Real-time data with technical analysis
-- **Investors**: Long-term trends and forecasts
-- **Students**: Learn economics through real data
-- **Analysts**: Professional-grade visualizations
-- **Researchers**: Historical data access
+Free tier includes:
+- ✅ 800 API requests per day
+- ✅ Real-time data
+- ✅ Historical data
+- ✅ Technical indicators
+- ✅ No credit card required
 
 ---
 
-**Built with ❤️ for financial analysis**
+## ⭐ Star This Repository
 
-*Dashboard is production-ready and actively maintained*
+If you find this project useful, please consider giving it a star! It helps others discover the project.
 
----
-
-## Quick Links
-
-- [Live Demo](#) (Coming soon)
-- [Documentation](docs/)
-- [API Reference](https://twelvedata.com/docs)
-- [Report Bug](https://github.com/yourusername/economist-dashboard/issues)
-- [Request Feature](https://github.com/yourusername/economist-dashboard/issues)
+[![GitHub stars](https://img.shields.io/github/stars/alexjiaguo/economist-financial-dashboard?style=social)](https://github.com/alexjiaguo/economist-financial-dashboard/stargazers)
 
 ---
 
-**Version**: 1.0.0  
-**Last Updated**: October 2025  
-**Status**: ✅ Production Ready
-
+**Built with ❤️ by Alex Guo**

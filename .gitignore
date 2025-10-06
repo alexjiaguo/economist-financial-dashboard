@@ -73,3 +73,7 @@ coverage.xml
 *.zip
 *.tar.gz
 
+# n8n and MCP folders
+.n8n/
+.cursor/
+
