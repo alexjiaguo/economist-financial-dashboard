@@ -48,8 +48,8 @@ A sophisticated, professional-grade financial analysis dashboard inspired by The
 
 1. **Clone the repository**
 ```bash
-git clone https://github.com/yourusername/economist-dashboard.git
-cd economist-dashboard
+git clone https://github.com/alexjiaguo/economist-financial-dashboard.git
+cd economist-financial-dashboard
 ```
 
 2. **Install dependencies**
